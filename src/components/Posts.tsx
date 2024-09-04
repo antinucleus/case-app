@@ -29,6 +29,7 @@ export const Posts = () => {
         data={posts}
         renderItem={({ item }) => <Post {...item} />}
         estimatedItemSize={16}
+        contentContainerStyle={styles.content}
       />
     </Surface>
   );
@@ -36,4 +37,5 @@ export const Posts = () => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, height: '100%' },
+  content: { padding: 10 },
 });
