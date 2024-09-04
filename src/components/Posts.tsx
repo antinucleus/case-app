@@ -6,7 +6,6 @@ import { Surface } from 'react-native-paper';
 import { getPosts } from '@/api';
 import { PostResponse } from '@/types';
 
-import { Loading } from './Loading';
 import { Post } from './Post';
 
 export const Posts = () => {
@@ -29,7 +28,7 @@ export const Posts = () => {
       <FlashList
         data={posts}
         renderItem={({ item }) => <Post {...item} />}
-        estimatedItemSize={16}
+        estimatedItemSize={100}
         contentContainerStyle={styles.content}
       />
     </Surface>

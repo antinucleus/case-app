@@ -16,7 +16,7 @@ export const MapModal = ({ lat, lng, showModal, setShowModal }: Props) => {
         dismissable={false}
         visible={showModal}
         contentContainerStyle={styles.containerStyle}>
-        <IconButton style={{ alignSelf: 'flex-end' }} icon="close" onPress={handleCloseModal} />
+        <IconButton style={styles.icon} icon="close" onPress={handleCloseModal} />
         <Map lat={lat} lng={lng} />
       </Modal>
     </Portal>
@@ -32,4 +32,5 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     borderRadius: 10,
   },
+  icon: { alignSelf: 'flex-end' },
 });

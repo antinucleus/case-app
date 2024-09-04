@@ -11,8 +11,8 @@ export const Map = ({ lat, lng }: Props) => {
         initialRegion={{
           latitude: lat,
           longitude: lng,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
+          latitudeDelta: 0.05,
+          longitudeDelta: 0.05,
         }}
         style={styles.map}>
         <Marker coordinate={{ latitude: lat, longitude: lng }} />

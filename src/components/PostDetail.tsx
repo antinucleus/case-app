@@ -26,7 +26,6 @@ export const PostDetail = () => {
 
   const fetchPostDetail = async () => {
     const data = await getPostDetail({ postId: route.params.id });
-    console.log('postdetail:', data);
 
     if (data) {
       setPostDetail(data);
