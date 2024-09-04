@@ -16,7 +16,8 @@ export const UserDetail = ({ address, company, ...rest }: Props) => {
 
   return (
     <ScrollView>
-      {rest ? (
+      {(!rest || !address || !company) && <Loading />}
+      {rest && (
         <List.Section>
           <List.Subheader>Personal Information</List.Subheader>
           <List.Item title="Name" description={rest.name} />
@@ -25,11 +26,9 @@ export const UserDetail = ({ address, company, ...rest }: Props) => {
           <List.Item title="Phone" description={rest.phone} />
           <List.Item title="Website" description={rest.website} />
         </List.Section>
-      ) : (
-        <Loading />
       )}
 
-      {address ? (
+      {address && (
         <List.Section>
           <List.Subheader>Address</List.Subheader>
           <List.Item title="City" description={address.city} />
@@ -43,30 +42,24 @@ export const UserDetail = ({ address, company, ...rest }: Props) => {
             onPress={handleOpenMap}
           />
         </List.Section>
-      ) : (
-        <Loading />
       )}
 
-      {address ? (
+      {address && (
         <MapModal
           lat={+address.geo.lat}
           lng={+address.geo.lng}
           showModal={showMap}
           setShowModal={setShowMap}
         />
-      ) : (
-        <Loading />
       )}
 
-      {company ? (
+      {company && (
         <List.Section>
           <List.Subheader>Company</List.Subheader>
           <List.Item title="Name" description={company.name} />
           <List.Item title="Buzzwords" description={company.bs} />
           <List.Item title="Slogan" description={company.catchPhrase} />
         </List.Section>
-      ) : (
-        <Loading />
       )}
     </ScrollView>
   );
