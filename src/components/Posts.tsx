@@ -1,10 +1,39 @@
-import React from 'react';
-import { Surface, Text } from 'react-native-paper';
+import { FlashList } from '@shopify/flash-list';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet } from 'react-native';
+import { Surface } from 'react-native-paper';
+
+import { getPosts } from '@/api';
+import { PostResponse } from '@/types';
+
+import { Post } from './Post';
 
 export const Posts = () => {
+  const [posts, setPosts] = useState<PostResponse[]>();
+
+  const fetchPost = async () => {
+    const data = await getPosts();
+
+    if (data) {
+      setPosts(data);
+    }
+  };
+
+  useEffect(() => {
+    fetchPost();
+  }, []);
+
   return (
-    <Surface>
-      <Text>Posts</Text>
+    <Surface style={styles.container}>
+      <FlashList
+        data={posts}
+        renderItem={({ item }) => <Post {...item} />}
+        estimatedItemSize={16}
+      />
     </Surface>
   );
 };
+
+const styles = StyleSheet.create({
+  container: { flex: 1, height: '100%' },
+});
