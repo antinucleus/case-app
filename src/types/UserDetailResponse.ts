@@ -11,7 +11,7 @@ export type UserDetailResponse = {
   };
   geo: {
     lat: number;
-    lnn: number;
+    lng: number;
   };
   phone: string;
   website: string;

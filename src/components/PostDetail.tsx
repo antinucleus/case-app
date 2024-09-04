@@ -49,7 +49,7 @@ export const PostDetail = () => {
       </Card>
 
       <Divider style={{ height: 1, marginVertical: 10 }} />
-      <UserDetail {...userDetail} />
+      {/* <UserDetail {...userDetail} /> */}
     </Surface>
   );
 };
