@@ -8,10 +8,10 @@ export type UserDetailResponse = {
     suite: string;
     city: string;
     zipcode: string;
-  };
-  geo: {
-    lat: number;
-    lng: number;
+    geo: {
+      lat: string;
+      lng: string;
+    };
   };
   phone: string;
   website: string;

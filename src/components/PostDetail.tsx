@@ -6,6 +6,7 @@ import { Avatar, Card, Divider, Surface, Text } from 'react-native-paper';
 import { getPostDetail, getUserDetail } from '@/api';
 import { PostDetailScreenRouteProp, PostResponse, UserDetailResponse } from '@/types';
 
+import { Loading } from './Loading';
 import { UserDetail } from './UserDetail';
 
 const LeftContent = (props: any) => <Avatar.Icon {...props} icon="account" />;
@@ -18,7 +19,6 @@ export const PostDetail = () => {
   const fetchUserDetail = async () => {
     const data = await getUserDetail({ userId: route.params.userId });
 
-    console.log('user:', data);
     if (data) {
       setUserDetail(data);
     }
@@ -40,16 +40,20 @@ export const PostDetail = () => {
 
   return (
     <Surface style={styles.container}>
-      <Card>
-        <Card.Title title={userDetail?.username} subtitle={userDetail?.name} left={LeftContent} />
-        <Card.Content>
-          <Text variant="titleMedium">{postDetail?.title} </Text>
-          <Text variant="bodyMedium">{postDetail?.body} </Text>
-        </Card.Content>
-      </Card>
+      {userDetail && postDetail ? (
+        <Card>
+          <Card.Title title={userDetail?.username} subtitle={userDetail?.name} left={LeftContent} />
+          <Card.Content>
+            <Text variant="titleMedium">{postDetail?.title} </Text>
+            <Text variant="bodyMedium">{postDetail?.body} </Text>
+          </Card.Content>
+        </Card>
+      ) : (
+        <Loading />
+      )}
 
       <Divider style={{ height: 1, marginVertical: 10 }} />
-      {/* <UserDetail {...userDetail} /> */}
+      <UserDetail {...userDetail} />
     </Surface>
   );
 };

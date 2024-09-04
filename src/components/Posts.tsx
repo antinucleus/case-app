@@ -6,6 +6,7 @@ import { Surface } from 'react-native-paper';
 import { getPosts } from '@/api';
 import { PostResponse } from '@/types';
 
+import { Loading } from './Loading';
 import { Post } from './Post';
 
 export const Posts = () => {
