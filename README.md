@@ -7,6 +7,7 @@ This application was developed with expo.
 - [Introduction](#introduction)
 - [Features](#features)
 - [Demo](#demo)
+- [How to Run](#how-to-run)
 - [Tech Stack](#tech-stack)
 - [Contact](#contact)
 
@@ -26,6 +27,13 @@ List post and show its details
 <p>Demo</p>
 <img src="https://github.com/antinucleus/repo-medias/blob/main/case-app/demo.gif" width="250" height="600"/>
 </div>
+
+## How to Run
+
+- Open project and run `npx expo start`
+- Press `i` for ios
+- Press `a` for android
+- It will download `expo-go` to ios simulator or android emulator
 
 ## Tech Stack
 
